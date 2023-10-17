@@ -1,0 +1,36 @@
+package com.example;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.Assert;
+import org.junit.Test;
+
+public class SeleniumTest {
+
+    @Test
+    public void testGreetingMessage() {
+        // Set the path to your chromedriver executable
+        System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+
+        // Initialize ChromeDriver
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to the webpage
+        driver.get("https://example.com"); // Replace with the URL of your webpage
+
+        // Find the element containing the greeting message
+        WebElement greetingElement = driver.findElement(By.id("greeting"));
+
+        // Get the text of the greeting message
+        String greetingMessage = greetingElement.getText();
+
+        // Assert that the greeting message is as expected
+        Assert.assertEquals("Hello, Nagi!", greetingMessage);
+
+        // Close the browser
+        driver.quit();
+    }
+}
+
